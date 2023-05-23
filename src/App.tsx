@@ -3,38 +3,22 @@ import { MiPrimerComponente } from "./components/mir-primer-componente";
 import { MiSegundoComponente } from "./components/mir-segundo-componente";
 import { title } from "./mock";
 import { useState } from "react";
+import axios from "axios";
+import { RootRouter } from "./routers";
+
 
 function App() {
-  const [showTitile, setShowTitle] = useState<boolean>(false);
-  const [title1,setTitle1]=useState('')
-  useEffect(() => {
-    console.log('Renderizando')
-  }, [showTitile]);
-
+  // const [title, setTitle] = useState<IPost[]>([]);
   
-  const handleshowTitle = () => {
-    setShowTitle((prevVlaue) => !prevVlaue);
-  };
-  return (
-    <>
-      <button onClick={handleshowTitle}>
-        {!showTitile ? `Mostrar Titulo` : "Ocultar Titulo"}
-      </button>
-      {title.map((element) => (
-        <Fragment key={element.id}>
-          {showTitile && <MiPrimerComponente title={element.title} />}
-          
-        </Fragment>
-        
-      ))}
-      <MiSegundoComponente title={title1} onclick={(e)=>setTitle1(e)}>
-            <p>{title1}</p>
-          </MiSegundoComponente>
-      <MiSegundoComponente title={title1}>
-            <p>{title1}</p>
-          </MiSegundoComponente>
-    </>
-  );
+  // const handleGetPost = async () => {
+  //   const result = await mycustomAxios.get<IPost[]>("posts");
+  //   setTitle(result.data);
+  // };
+  // useEffect(() => {
+  //   handleGetPost();
+  // }, []);
+
+  return <RootRouter />;
 }
 
 export default App;
