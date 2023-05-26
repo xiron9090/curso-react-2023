@@ -8,6 +8,7 @@ import { Description } from "../../../components/Description/description";
 import { ButtonShowMore } from "../components/ButtonShowMore";
 import { AppContext } from "../../../context";
 import { useGetPost } from "../hooks/useGetPost";
+import { Link } from "react-router-dom";
 
 export const PostDetails = () => {
   const [post, setPost] = useState<IPost>();
@@ -32,10 +33,14 @@ export const PostDetails = () => {
     handleShowPost();
   }, []);
   return (
+    <>
+    <Link to={'/post/create'}>Create</Link>
+    <Link to={'/post/update'}>Update</Link>
     <PostContainer>
       <Title>{data.post?.title.toUpperCase()}</Title>
       <Description>{data.post?.body}</Description>
       <ButtonShowMore onClick={onBack}>Back</ButtonShowMore>
     </PostContainer>
+    </>
   );
 };
